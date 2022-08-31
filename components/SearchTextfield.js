@@ -3,7 +3,7 @@ import { Box } from '@mui/system'
 import React from 'react'
 import classes from '../utils/classes'
 
-const SearchTextfield = ({title, ref, error}) => {
+const SearchTextfield = ({title, ref}) => {
 
   return (
     <ListItem>

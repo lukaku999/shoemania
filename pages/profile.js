@@ -7,11 +7,10 @@ import Layout from '../components/Layout'
 import { Button, List, ListItem, Typography } from '@mui/material'
 import Form from '../components/Form'
 import { Store } from '../utils/Store'
-import PageLink from '../components/PageLink'
 import ModifiedTextfield from '../components/ModifiedTextfield'
 import color from '../utils/color'
 import dynamic from 'next/dynamic'
-import axios from 'axios'
+
 
 const Profile = () => {
 
@@ -97,8 +96,8 @@ const Profile = () => {
                 <List>
                     {
                         registrationInfo.map(fieldInfo => 
-                            <ListItem>
-                                <ModifiedTextfield key = {fieldInfo.name} control = {control} fieldInfo = {fieldInfo}/>
+                            <ListItem key = {fieldInfo.name}>
+                                <ModifiedTextfield  control = {control} fieldInfo = {fieldInfo}/>
                             </ListItem>
                             
                         )

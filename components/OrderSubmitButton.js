@@ -1,9 +1,10 @@
+import { Button, ListItem } from '@mui/material'
 import React from 'react'
 
 const OrderSubmitButton = ({buttonList}) => {
   return (
     buttonList.map(buttonData => 
-        <ListItem>
+        <ListItem key = {buttonData.text}>
             <Button onClick = {buttonData.onClickHandler}
                     variant="contained"
                     color="primary"

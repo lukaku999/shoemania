@@ -1,4 +1,4 @@
-import { Box, CircularProgress, formLabelClasses, ListItem, Typography } from '@mui/material'
+import { Box, formLabelClasses, ListItem, Typography } from '@mui/material'
 import dynamic from 'next/dynamic'
 import React, { useContext, useEffect, useState } from 'react'
 import Layout from '../../components/Layout'
@@ -19,7 +19,7 @@ const Order = ({params}) => {
   
   const router = useRouter()
   const {enqueueSnackbar} = useSnackbar()
-  const [{isPending}, paypalDispatch] = usePayPalScriptReducer()
+  const [ paypalDispatch] = usePayPalScriptReducer()
   const [showPayment, setShowPayment] = useState(formLabelClasses)
 
  
@@ -91,24 +91,16 @@ const Order = ({params}) => {
               return approvePayment(user, order._id, details, enqueueSnackbar)
 
             })
-            .then(val => {
+            .then(() => {
               fetchOrder(user, orderId, enqueueSnackbar, dispatch)
             })
   }
 
-  const onError = (data, actions) => {
-    enqueueSnackbar(getError(err), {variant: 'error'})
+  const onError = () => {
+    enqueueSnackbar("Something went wrong", {variant: 'error'})
   }
 
-  const cancelOrderHandler = (orderId) => {
-
-  }
-
-
-
-  const paymentHandler = (orderId) => {
-
-  }
+ 
 
   const buttons = 
                   <ListItem>

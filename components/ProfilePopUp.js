@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Popover from '@mui/material/Popover';
-import {Button, Card, Grid, Typography, Link} from '@mui/material';
+import {Button, Card, Grid, Typography} from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Store } from '../utils/Store';
 import {useRouter} from 'next/router'
@@ -76,7 +76,7 @@ export default function ProfilePopup() {
                 <Grid container item justifyContent={"center"} sx = {{marginTop: "1rem"}}>
                         <Grid item sx = {{p: 1}}>
                             <TooltipTransition title= {"Profile"}> 
-                                {user.image ? <img style = {classes.profileImage}/> : <AccountCircleIcon sx = {classes.profileImage}/>}
+                                {user.image ? <img alt = "user" style = {classes.profileImage}/> : <AccountCircleIcon sx = {classes.profileImage}/>}
                             </TooltipTransition>
                         </Grid>
                         <Grid item sx = {{p: 1}}>                    

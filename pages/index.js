@@ -1,8 +1,8 @@
 
-import { useContext, useEffect, useState } from 'react'
-import { Alert, CircularProgress, Grid, Typography } from '@mui/material'
+import { useContext} from 'react'
+import { Grid} from '@mui/material'
 import Layout from '../components/Layout'
-import client from '../utils/client'
+
 import ProductItem from '../components/ProductItem'
 import { Store } from '../utils/Store'
 

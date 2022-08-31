@@ -11,11 +11,11 @@ export default handler.post(async(req, res) => {
     try {
         const getUser = await client.fetch(`*[_type == "user" && email == $email]`, {email: req.body.email})
         if (getUser.length > 0) {
-            console.log(getUser, "user found") 
+     
             res.status(401).send({message: 'User already exist'})
         }
         else {
-            console.log(getUser, "user not found") 
+          
             const projectId = config.projectId
             const dataset = config.dataset
             const tokenWithWriteAccess = process.env.SANITY_AUTH_TOKEN
@@ -31,7 +31,7 @@ export default handler.post(async(req, res) => {
                     }
                 }
             ]
-            console.log("do we reach this point")
+  
             const {data} = await axios
                                 .post(`https://${projectId}.api.sanity.io/v1/data/mutate/${dataset}?returnIds=true`,
                                         {mutations: createMutations},
@@ -41,8 +41,8 @@ export default handler.post(async(req, res) => {
                                         }
                                 )
 
-            console.log(data.results[0])
-            const userId = data.results[0].id
+
+    
             const user = {
                 _id: data.results[0].id,
                 ...req.body,

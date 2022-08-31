@@ -11,7 +11,7 @@ import {useRouter} from 'next/router'
 import { Store } from '../utils/Store'
 
 
-const register = () => {
+const Register = () => {
     const {state: {user, registerUser}, dispatch} = useContext(Store)
     const {handleSubmit, control, formState: {errors}} = useForm()
     const {enqueueSnackbar} = useSnackbar()
@@ -94,8 +94,8 @@ const register = () => {
                 <List>
                     {
                         registrationInfo.map(fieldInfo => 
-                            <ListItem>
-                                <ModifiedTextfield key = {fieldInfo.name} control = {control} fieldInfo = {fieldInfo}/>
+                            <ListItem key = {fieldInfo.name}>
+                                <ModifiedTextfield  control = {control} fieldInfo = {fieldInfo}/>
                             </ListItem>
                             
                         )
@@ -123,4 +123,4 @@ const register = () => {
     )
 }
 
-export default register
+export default Register

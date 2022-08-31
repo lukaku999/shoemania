@@ -35,7 +35,7 @@ import PageLink from './PageLink'
 import TooltipTransition from './TooltipTransition'
 import ProfilePopUp from './ProfilePopUp'
 import Loading from './Loading'
-import Footer from './Footer'
+
 
 
 const Layout = ({title, description, children}) => {
@@ -48,7 +48,7 @@ const Layout = ({title, description, children}) => {
     //Context
     const {state, dispatch} = useContext(Store)
     const {darkMode,
-            loading,
+     
             cart, 
             fetchProducts, 
             user, 
@@ -254,7 +254,7 @@ const Layout = ({title, description, children}) => {
                     <Container component="main" sx = {classes.main}>
                         {children}
                     </Container>
-                    <Footer/>
+                   
                     <Loading/>
 
                 </ThemeProvider>

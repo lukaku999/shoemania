@@ -1,8 +1,8 @@
 import { ListItem, MenuItem, Select, Typography } from '@mui/material'
 import { Box } from '@mui/system'
-import React, { useContext } from 'react'
+import React from 'react'
 import classes from '../utils/classes'
-import { Store } from '../utils/Store'
+
 
 const SearchMenu = ({title, handler, menuData, value}) => {
     //const {state: {productData: {categories}}} = useContext(Store)

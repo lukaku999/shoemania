@@ -14,7 +14,7 @@ import { useSnackbar } from 'notistack'
 
 const Payment = () => {
   const [paymentMethodTemp, setPaymentMethodTemp] = useState('')
-  const {handleSubmit, control, formState: {errors}, setValue} = useForm()
+  const {} = useForm()
   const {state: {user, cart:{shippingAddress, paymentMethod}, savePaymentMethod},  dispatch} = useContext(Store)
   const router = useRouter()
   const {enqueueSnackbar} = useSnackbar()

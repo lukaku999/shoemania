@@ -1,12 +1,8 @@
-import { Table, TableBody, TableCell, 
-        TableContainer, TableHead, 
-        TableRow, TextField, 
-        Typography, Button } from '@mui/material'
+
 import React, { useContext, useEffect } from 'react'
-import classes from '../utils/classes'
+
 import { Store } from '../utils/Store'
-import PageLink from './PageLink'
-import Image from 'next/image'
+
 import { useSnackbar } from 'notistack'
 import CartItemTable from './CartItemTable'
 

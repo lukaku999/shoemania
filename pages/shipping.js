@@ -97,8 +97,8 @@ const Shipping = () => {
             <List>
                     {
                         registrationInfo.map(fieldInfo => 
-                            <ListItem>
-                                <ModifiedTextfield key = {fieldInfo.name} control = {control} fieldInfo = {fieldInfo}/>
+                            <ListItem key = {fieldInfo.name}>
+                                <ModifiedTextfield  control = {control} fieldInfo = {fieldInfo}/>
                             </ListItem>
                             
                         )

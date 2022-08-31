@@ -2,6 +2,7 @@ import nc from 'next-connect'
 //import client from '../../../../utils/client'
 import {isAuth} from '../../../../utils/auth'
 import config from '../../../../utils/config'
+import axios from 'axios'
 
 const handler = nc()
 

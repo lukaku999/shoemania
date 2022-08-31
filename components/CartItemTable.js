@@ -14,11 +14,12 @@ const CartItemTable = ({items,
                         editable, 
                         orderStatus,
                         updateCart,
-                        removeCart
+             
                     }) => {
 
   const {enqueueSnackbar} = useSnackbar() 
-  const {dispatch} = useContext(Store)  
+
+  const {state: {removeItem }, dispatch} = useContext(Store)
 
   return (
     <TableContainer>
@@ -51,25 +52,25 @@ const CartItemTable = ({items,
                                             <TableCell  align = "center">
                                     
                                             {orderStatus === 'order placement' ?
-                                                                                editable ? <TextField                                                                                     
-                                                                                            value={item.quantity}
-                                                                                            size = "medium"
-                                                                                            sx = {classes.quantityTextField}
-                                                                                            onChange = {e => updateCart(item, parseInt(e.target.value), enqueueSnackbar, dispatch)}
-                                                                                            type="number"
-                                                                                            color="primary"
-                                                                                            error = {cartItemsAvailability.length > 0  && cartItemsAvailability.find(product => product._key === item._key).insufficientProduct}
-                                                                                            helperText = {cartItemsAvailability.length > 0  && `${cartItemsAvailability.find(product => product._key === item._key).productQuantity} left` 
-                                                                                                            }
-                                                                                            InputLabelProps={{
-                                                                                                shrink: true,
-                                                                                            }}
-                                                                                            >
-                                                                                            {item.quantity}
-                                                                                        </TextField>
-                                                                                    : <Typography sx = {cartItemsAvailability.length > 0  && 
-                                                                                                            cartItemsAvailability.find(product => product._key === item._key).insufficientProduct ? classes.unavailableColor : classes.availableColor}>{item.quantity}</Typography> 
-                                                                                : <Typography>{item.quantity}</Typography> 
+                                                editable ? <TextField                                                                                     
+                                                            value={item.quantity}
+                                                            size = "medium"
+                                                            sx = {classes.quantityTextField}
+                                                            onChange = {e => updateCart(item, parseInt(e.target.value), enqueueSnackbar, dispatch)}
+                                                            type="number"
+                                                            color="primary"
+                                                            error = {cartItemsAvailability.length > 0  && cartItemsAvailability.find(product => product._key === item._key).insufficientProduct}
+                                                            helperText = {cartItemsAvailability.length > 0  && `${cartItemsAvailability.find(product => product._key === item._key).productQuantity} left` 
+                                                                            }
+                                                            InputLabelProps={{
+                                                                shrink: true,
+                                                            }}
+                                                            >
+                                                            {item.quantity}
+                                                        </TextField>
+                                                    : <Typography sx = {cartItemsAvailability.length > 0  && 
+                                                                            cartItemsAvailability.find(product => product._key === item._key).insufficientProduct ? classes.unavailableColor : classes.availableColor}>{item.quantity}</Typography> 
+                                                : <Typography>{item.quantity}</Typography> 
                                             }                                                                                            
                                             </TableCell >
                                             <TableCell  align = "center">R{item.price.toFixed(2)}</TableCell>

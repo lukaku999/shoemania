@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect,  useState } from 'react'
 import {useRouter} from 'next/router'
 import { useSnackbar } from 'notistack'
-import SearchMenu from '../components/SearchMenu'
-import { Button, Grid, InputAdornment, List, ListItem, MenuItem, Select, TextField, Typography } from '@mui/material'
+
+import { Button, Grid, InputAdornment, List, ListItem, MenuItem, Select,  Typography } from '@mui/material'
 import ProductItem from '../components/ProductItem'
 import { Store } from '../utils/Store'
 import Layout from '../components/Layout'
 import classes from '../utils/classes'
-import SearchTextfield from '../components/SearchTextfield'
+
 import ModifiedTextfield from '../components/ModifiedTextfield'
 import {useForm} from 'react-hook-form'
 import Form from '../components/Form'
@@ -18,7 +18,7 @@ import ModifiedSelect from '../components/ModifiedSelect'
 const Search = () => {
     const router = useRouter()
     const {state: {productData: {products, categories}, fetchProducts}, dispatch} = useContext(Store)
-    const {handleSubmit, control, formState: {errors}, setValue} = useForm()
+    const {handleSubmit, control, setValue} = useForm()
 
     const {enqueueSnackbar} = useSnackbar()
     const {
@@ -31,10 +31,8 @@ const Search = () => {
         sort = "default"
     } = router.query
 
-    const [minPriceError, setMinPriceError] = useState(false)
-    const [maxPriceError, setMaxPriceError] = useState(false)
-    const minPriceRef = useRef('')
-    const maxPriceRef = useRef('')
+
+
 
 
     
@@ -152,7 +150,7 @@ const Search = () => {
             title: "Minimum Price",
             inputAdornment: {startAdornment: <InputAdornment position="start">R</InputAdornment>},
             type: "minPrice",
-            error: minPriceError,
+   
             helperText: ''
             
         },
@@ -164,7 +162,7 @@ const Search = () => {
             title: "Maximum Price",
             inputAdornment: {startAdornment: <InputAdornment position="start">R</InputAdornment>},
             type: "maxPrice",
-            error: maxPriceError,
+    
             helperText: ''
             
         },

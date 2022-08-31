@@ -3,10 +3,10 @@ import React from 'react'
 import classes from '../utils/classes'
 import CartItems from './CartItems'
 import CartItemTable from './CartItemTable'
-import OrderSubmitButton from './OrderSubmitButton'
+import {useRouter} from 'next/router'
 
 const OrderDetails = ({order, buttons}) => {
-
+  const router = useRouter()
   const {shippingAddress,
             paymentMethod,
             orderItems,
@@ -21,7 +21,7 @@ const OrderDetails = ({order, buttons}) => {
             orderStatus
             } = order
 
-    console.log(isDelivered, "isDelivered")
+
   return (
     <Grid container spacing = {1}>
             <Grid item md = {9} xs = {12}>
